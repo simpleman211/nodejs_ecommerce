@@ -9,7 +9,13 @@ const userSchema = new mongoose.Schema({
     },
     password: String,
     profilePic: String,
-    role: String
+    role: String,
+    address: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Address',
+    },
+    phone: String
+      
 });
 
 

@@ -1,9 +1,10 @@
-const { default: mongoose } = require("mongoose");
+
 const bcrypt = require('bcryptjs');
 const userModel = require("../../models/userModel");
 
 async function userSignUpController(req,res) {
     try{
+        
         const { email,password,name } = req.body;
 
         const user = await userModel.findOne({ email: email});
@@ -40,7 +41,7 @@ async function userSignUpController(req,res) {
 
         const userData = new userModel(payload)
 
-        const saveUser = await userData.save();
+        const saveUser = await userData.save()
 
         res.status(201).json({
             data: saveUser,
